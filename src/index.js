@@ -2,6 +2,11 @@ import ToDoList from './modules/todoclass.js';
 import './style.css';
 import enterIcon from './enter.png';
 
+const runClass = new ToDoList();
+const btnTask = document.getElementById('enterInput');
+const enterTask = document.getElementById('input');
+const delCompletedbtn = document.getElementById('clear-btn');
+
 const createEnterIcon = () => {
   const formContainer = document.querySelector('.input-container');
   const enIcon = new Image();
@@ -14,20 +19,18 @@ const createEnterIcon = () => {
 
 createEnterIcon();
 
-const runClass = new ToDoList();
 runClass.displaytdlist();
-const btnTask = document.getElementById('enterInput');
+
 btnTask.addEventListener('click', () => {
   runClass.addTask();
 });
-const enterTask = document.getElementById('input');
+
 enterTask.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     runClass.addTask();
   }
 });
 
-const delCompletedbtn = document.getElementById('clear-btn');
 delCompletedbtn.addEventListener('click', () => {
   runClass.delCompletedTasks();
 });
